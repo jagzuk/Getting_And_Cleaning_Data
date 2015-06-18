@@ -13,7 +13,7 @@ On subsequent executions, the script will detect that the data has already been 
 
 **Note:** This code was written for use on Windows 8.1, on other operating systems you may need to modify the parameters of the download.file command.
 
-For further information on the data and the operation of the script, see *CodeBook.md* in this repository.
+For a detailed description of the operation of the script, please refer to **CodeBook.md**, also in this repository.
 
 
 
