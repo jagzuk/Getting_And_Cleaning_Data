@@ -5,9 +5,9 @@
 ## Overview
 The R script `run_analysis.R` found in this repository is a solution to the project assingment for the Getting and Cleaning Data course.  
 
-The project uses [data collected from the accelerometers of Samsung Galaxy S smartphones](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). The source data set is provided as zip library containing a number of normalized text-based data files without headers. 
+The project uses [data collected from the accelerometers of Samsung Galaxy S smartphones](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). The source data set is provided as a zip library containing a number of normalized text-based data files without headers. 
 
-Of relevance to this project the data comprises 3 files each of training and test data, a file containing activity labels and a file containing variable labels. See Source Data Overview for more information on these files.
+Of relevance to this project, the data comprises 3 files each of training and test data, one file containing activity labels and one file containing variable labels. See Source Data Overview for more information on these files.
 
 The purporse of the script is to combine these 8 files into a single tidy data set showing the average of all mean and standard deviation observations for each subject and activity. This is achived by performing the following operations:
 
@@ -21,6 +21,8 @@ The purporse of the script is to combine these 8 files into a single tidy data s
 
 ## Programming Environment
 
+| Attibute            | Value          |
+| ------------------- | -------------- |
 | Operating System | Windows 8.1 |
 | R Version | 3.1.3 (2015-03-09) |
 | R Studio Version | 0.98.1103 |
@@ -47,6 +49,15 @@ For each record in the dataset it is provided:
 - Its activity label. 
 - An identifier of the subject who carried out the experiment.
 
+## Source Data Files
+
+| Content         | File Name(s)                              |
+| --------------- | ----------------------------------------- |
+| Training Data | subject_train.txt, X_train.txt, Y_train.txt |
+| Test Data | subject_test.txt, X_test.txt, Y_test.txt |
+| Activity Labels | activity_labels.txt |
+| Variable Labels | features.txt |
+
 
 ## tidy_data_set.txt Summary
 
@@ -59,7 +70,7 @@ For each record in the dataset it is provided:
 
 ## tidy_data_set.txt Attibute list
 
-| Name | Type | Comments |
+| Name                | Type    | Comments                       |
 | ------------------- | ------- |----------------------------------- |
 | SubjectID  | integer | 1-30 |
 |ActivityName | char | LAYING, SITTING, STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS |
