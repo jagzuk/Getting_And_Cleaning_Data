@@ -61,12 +61,11 @@ For each record in the dataset it is provided:
 
 ## tidy_data_set.txt Summary
 
-- Format: .txt tab seperated
-- Headers: Yes
-- Obervations: 181
-- Subjects: 30; Anonymous
+- Format: .txt tab seperated with headers
+- Obervations: 180
+- Subjects: 30; Anonymous integer identifier
 - Activities: 6; LAYING, SITTING, STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS
-- Variables: 65
+- Variables: 68, SubjectID, ActivityName, 66 numberic variables
 
 ## tidy_data_set.txt Attibute list
 
