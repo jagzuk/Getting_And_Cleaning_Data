@@ -3,7 +3,7 @@
 ### CodeBook for run_analysis.R and tidy_data_set.txt
 
 ## Overview
-The R script `run_analysis.R` found in this repository is a solution to the project assingment for the Getting and Cleaning Data course.  
+The R script `run_analysis.R` found in this repository is a solution to the project assignment for the Getting and Cleaning Data course.  
 
 The project uses [data collected from the accelerometers of Samsung Galaxy S smartphones](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). The source data set is provided as a zip library containing a number of normalized text-based data files without headers. 
 
