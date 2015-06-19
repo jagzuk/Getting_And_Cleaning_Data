@@ -33,7 +33,7 @@ setwd("data/UCI HAR Dataset") # Access the new directory
 ### 1. Merges the training and the test sets to create one data set.###
 print("#1 Merging datasets, this may take some time!")
 
-# Use read.table and rbind to combine the training data in to train.all
+# Use read.table and cbind to combine all columns of the training data in to train.all
 print("...Merging training data ...")
 s <- read.table("train/subject_train.txt", header=FALSE, col.names = "SubjectID")
 x <- read.table("train/X_train.txt", header=FALSE)
@@ -48,7 +48,7 @@ y <- read.table("test/Y_test.txt", header=FALSE, col.names = "ActivityID")
 test <- cbind(s,y,x)
 rm(x,y,s) # finished with these, clean up!
 
-# Combine train and test data into one file
+# Use rbind to combine all the rows of train and test data into data.all
 print("...Merging training and test data into one file ...")
 data.all <- rbind(train, test)
 names(data.all) <- c("Subject", "Activity")
@@ -57,30 +57,31 @@ rm(train, test) # finished with these, clean up!
 
 ### 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
 print("#2 Extracting mean and sd measurements ...")
+# Read in the features info so we can filter using parital names (mead and std)
 features <- read.table("features.txt", header=FALSE, col.names = c("FeatureID", "FeatureName"))
 features.selected <- grep("mean\\(\\)|std\\(\\)", features$FeatureName, ignore.case=TRUE, value=TRUE)
 data.all <- data.all[,c(c(1:2), grep("mean\\(\\)|std\\(\\)",features$FeatureName, ignore.case=TRUE) + 2)]
 
 ### 3. Uses descriptive activity names to name the activities in the data set ###
 print("#3 Adding decriptive names to activities ...")
-# Read in the lables, then rewrite the activty name column with the names supplied
+# Read in the lables, then replace the activity ids with the names supplied
 activity.labels <- read.table("activity_labels.txt", header = FALSE)
 data.all$Activity <- factor(data.all$Activity, levels = activity.labels$V1, labels = activity.labels$V2)
 
 ### 4. Appropriately labels the data set with descriptive variable names. ###
 print("#4 Adding desctiptive names to the variables ...")
 # The feature names are still in the features.selected object,
-#just need to add SubjectID and ActivityName if front of them ...
+# ... just need to add SubjectID and ActivityName if front of them then copy the rest 
 names(data.all) <- c("SubjectID", "ActivityName", features.selected)
 
 ### 5. From the data set in step 4, creates a second, independent tidy data set 
 ###    with the average of each variable for each activity and each subject.
 print("#5 Calculating averages and writing tidy_data_set.txt ...")
-# Use aggregate function to compute summary statistics of data
+# Use aggregate function to compute summary statistics of the data
 data.all.tidy <- aggregate(. ~ SubjectID + ActivityName, data.all, mean)
 # Order by SubjectId, then by ActivityName
 data.all.tidy <- data.all.tidy[order(data.all.tidy$SubjectID, data.all.tidy$ActivityName),]
-# Write the tidy dataset, supress row naming
+# Write the tidy dataset, supressing row naming as requested in the assignment notes
 data.file.tidy <- "tidy_data_set.txt"
 write.table(data.all.tidy, data.file.tidy, row.name = FALSE)
 
