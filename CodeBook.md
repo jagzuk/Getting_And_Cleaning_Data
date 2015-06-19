@@ -9,15 +9,15 @@ The project uses [data collected from the accelerometers of Samsung Galaxy S sma
 
 Of relevance to this project, the data comprises 3 files each of training and test data, one file containing activity labels and one file containing variable labels. See Source Data Overview for more information on these files.
 
-The purporse of the script is to combine these 8 files into a single tidy data set showing the average of all mean and standard deviation observations for each subject and activity. This is achived by performing the following operations:
+The purporse of the script is to combine these 8 files into a single tidy data set showing the average of all mean and standard deviation observations for each subject and activity. This is achieved by performing the following operations:
 
-- Download and unzip the source data
-- Merge 3 traing and 3 test into one core data table
-- Select only the average and standard deviation measures
-- Replace the activity id with a descriptive name
-- Add the appropriate names to all variables
-- Calculate the average value for each subject/activity
-- Write the resultant data set to the file tidy_data_set.txt
+- Downloading and unzipping the source data
+- Merging the 3 training and 3 test files into one core data table
+- Selecting only the average and standard deviation measures
+- Replacing the activity ids with descriptive names
+- Adding the appropriate names to all variables
+- Summarising to a mean of each measure on a per subject/activity basis
+- Outputting the resultant data set to the file tidy_data_set.txt
 
 ## Programming Environment
 
